@@ -9,7 +9,6 @@ lan_ipaddr=$(nvram get lan_ipaddr)
 server_ip=`resolvip $ss_basic_server`
 nat_ready=$(iptables -t nat -L PREROUTING -v -n --line-numbers|grep -v PREROUTING|grep -v destination)
 version_gfwlist=$(cat /koolshare/ss/cru/version | sed -n 1p | sed 's/ /\n/g'| sed -n 3p)
-md5sum_gfwlist=$(md5sum /jffs/configs/dnsmasq.d/gfwlist.conf | sed 's/ /\n/g'| sed -n 1p)
 wanwhitedomain=$(echo $ss_ipset_white_domain_web | sed 's/,/\n/g')
 i=120
 nvram set ss_mode=1
